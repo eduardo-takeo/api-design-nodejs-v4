@@ -1,12 +1,18 @@
 import express from "express";
-import path from "path";
+import router from "./router";
+import morgan from "morgan";
 const app = express();
 
-app.use(express.static("static"));
+app.use(morgan("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
+  console.log("Initial route");
   res.status(200);
-  res.sendFile(path.resolve("static/pages/index.html"));
+  res.json({ message: "Hello from API" });
 });
+
+app.use("/api", router);
 
 export default app;
