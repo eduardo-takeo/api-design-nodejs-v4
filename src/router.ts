@@ -1,4 +1,6 @@
 import { Router } from "express";
+import { body } from "express-validator";
+import { errorValidator } from "./modules/validator";
 
 const router = Router();
 /**
@@ -12,7 +14,12 @@ router.get("/product/:id", (req, res) => {});
 
 router.post("/product", (req, res) => {});
 
-router.put("/product/:id", (req, res) => {});
+router.put(
+  "/product/:id",
+  body("name").isString(),
+  errorValidator,
+  (req, res) => {}
+);
 
 router.delete("/product/:id", (req, res) => {});
 
