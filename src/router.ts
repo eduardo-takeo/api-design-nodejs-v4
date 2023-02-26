@@ -1,18 +1,24 @@
 import { Router } from "express";
 import { body } from "express-validator";
+import { createProduct, getProducts } from "./handlers/product";
 import { errorValidator } from "./modules/validator";
 
 const router = Router();
 /**
  * Product
  */
-router.get("/product", (req, res) => {
+router.get("/product", getProducts, (req, res) => {
   res.json({ message: "product" });
 });
 
 router.get("/product/:id", (req, res) => {});
 
-router.post("/product", (req, res) => {});
+router.post(
+  "/product",
+  body("name").isString(),
+  createProduct,
+  (req, res) => {}
+);
 
 router.put(
   "/product/:id",
