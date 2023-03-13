@@ -20,4 +20,10 @@ app.use("/api", protect, router);
 app.post("/user", createNewUser);
 app.post("/signin", signIn);
 
+// Error handler
+app.use((err, req, res, next) => {
+  console.log(err);
+  res.json({ message: "Ooops, there was an error" });
+});
+
 export default app;
