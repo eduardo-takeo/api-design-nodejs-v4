@@ -89,4 +89,8 @@ router.put(
 
 router.delete("/updatepoint/:id", (req, res) => {});
 
+router.use((err, req, res, next) => {
+  res.status(500).json({ message: "Internal Server Error" });
+});
+
 export default router;
