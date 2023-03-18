@@ -4,7 +4,8 @@
   "description": "API design with node - v4",
   "main": "src/index.ts",
   "scripts": {
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon src/index.ts",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
