@@ -2,8 +2,8 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 import server from "./server";
-const PORT = 5000;
+import config from "./config";
 
-server.listen(PORT, () => {
-  console.log(`Hello on port ${PORT}`);
+server.listen(config.port, () => {
+  console.log(`Hello on port ${config.port}`);
 });
